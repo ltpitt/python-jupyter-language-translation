@@ -159,10 +159,10 @@ else:
     print('Default GPU Device: {}'.format(tf.test.gpu_device_name()))
 ```
 
-    TensorFlow Version: 1.3.0-rc1
+    TensorFlow Version: 1.1.0
     
 
-    C:\Users\DNastri\AppData\Local\Continuum\Anaconda3\envs\language_best\lib\site-packages\ipykernel_launcher.py:15: UserWarning: No GPU found. Please use a GPU to train your neural network.
+    c:\users\dnastri\appdata\local\continuum\anaconda3\envs\tensorflow1_1\lib\site-packages\ipykernel_launcher.py:15: UserWarning: No GPU found. Please use a GPU to train your neural network.
       from ipykernel import kernelapp as app
     
 
@@ -212,20 +212,6 @@ DON'T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE
 tests.test_model_inputs(model_inputs)
 ```
 
-    ERROR:tensorflow:==================================
-    Object was never used (type <class 'tensorflow.python.framework.ops.Operation'>):
-    <tf.Operation 'assert_rank_2/Assert/Assert' type=Assert>
-    If you want to mark it as used call its "mark_used()" method.
-    It was originally created here:
-    ['File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\runpy.py", line 193, in _run_module_as_main\n    "__main__", mod_spec)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\runpy.py", line 85, in _run_code\n    exec(code, run_globals)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\ipykernel_launcher.py", line 16, in <module>\n    app.launch_new_instance()', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\traitlets\\config\\application.py", line 658, in launch_instance\n    app.start()', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\ipykernel\\kernelapp.py", line 477, in start\n    ioloop.IOLoop.instance().start()', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\zmq\\eventloop\\ioloop.py", line 177, in start\n    super(ZMQIOLoop, self).start()', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tornado\\ioloop.py", line 888, in start\n    handler_func(fd_obj, events)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tornado\\stack_context.py", line 277, in null_wrapper\n    return fn(*args, **kwargs)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\zmq\\eventloop\\zmqstream.py", line 440, in _handle_events\n    self._handle_recv()', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\zmq\\eventloop\\zmqstream.py", line 472, in _handle_recv\n    self._run_callback(callback, msg)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\zmq\\eventloop\\zmqstream.py", line 414, in _run_callback\n    callback(*args, **kwargs)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tornado\\stack_context.py", line 277, in null_wrapper\n    return fn(*args, **kwargs)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\ipykernel\\kernelbase.py", line 283, in dispatcher\n    return self.dispatch_shell(stream, msg)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\ipykernel\\kernelbase.py", line 235, in dispatch_shell\n    handler(stream, idents, msg)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\ipykernel\\kernelbase.py", line 399, in execute_request\n    user_expressions, allow_stdin)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\ipykernel\\ipkernel.py", line 196, in do_execute\n    res = shell.run_cell(code, store_history=store_history, silent=silent)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\ipykernel\\zmqshell.py", line 533, in run_cell\n    return super(ZMQInteractiveShell, self).run_cell(*args, **kwargs)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\IPython\\core\\interactiveshell.py", line 2698, in run_cell\n    interactivity=interactivity, compiler=compiler, result=result)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\IPython\\core\\interactiveshell.py", line 2808, in run_ast_nodes\n    if self.run_code(code, result):', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\IPython\\core\\interactiveshell.py", line 2862, in run_code\n    exec(code_obj, self.user_global_ns, self.user_ns)', 'File "<ipython-input-17-4b8937721a82>", line 19, in <module>\n    tests.test_model_inputs(model_inputs)', 'File "C:\\Users\\DNastri\\DeepLearning\\python-jupyter-language-translation\\problem_unittests.py", line 106, in test_model_inputs\n    assert tf.assert_rank(lr, 0, message=\'Learning Rate has wrong rank\')', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tensorflow\\python\\ops\\check_ops.py", line 617, in assert_rank\n    dynamic_condition, data, summarize)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tensorflow\\python\\ops\\check_ops.py", line 571, in _assert_rank_condition\n    return control_flow_ops.Assert(condition, data, summarize=summarize)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tensorflow\\python\\util\\tf_should_use.py", line 175, in wrapped\n    return _add_should_use_warning(fn(*args, **kwargs))', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tensorflow\\python\\util\\tf_should_use.py", line 144, in _add_should_use_warning\n    wrapped = TFShouldUseWarningWrapper(x)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tensorflow\\python\\util\\tf_should_use.py", line 101, in __init__\n    stack = [s.strip() for s in traceback.format_stack()]']
-    ==================================
-    ERROR:tensorflow:==================================
-    Object was never used (type <class 'tensorflow.python.framework.ops.Operation'>):
-    <tf.Operation 'assert_rank_3/Assert/Assert' type=Assert>
-    If you want to mark it as used call its "mark_used()" method.
-    It was originally created here:
-    ['File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\runpy.py", line 193, in _run_module_as_main\n    "__main__", mod_spec)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\runpy.py", line 85, in _run_code\n    exec(code, run_globals)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\ipykernel_launcher.py", line 16, in <module>\n    app.launch_new_instance()', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\traitlets\\config\\application.py", line 658, in launch_instance\n    app.start()', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\ipykernel\\kernelapp.py", line 477, in start\n    ioloop.IOLoop.instance().start()', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\zmq\\eventloop\\ioloop.py", line 177, in start\n    super(ZMQIOLoop, self).start()', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tornado\\ioloop.py", line 888, in start\n    handler_func(fd_obj, events)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tornado\\stack_context.py", line 277, in null_wrapper\n    return fn(*args, **kwargs)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\zmq\\eventloop\\zmqstream.py", line 440, in _handle_events\n    self._handle_recv()', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\zmq\\eventloop\\zmqstream.py", line 472, in _handle_recv\n    self._run_callback(callback, msg)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\zmq\\eventloop\\zmqstream.py", line 414, in _run_callback\n    callback(*args, **kwargs)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tornado\\stack_context.py", line 277, in null_wrapper\n    return fn(*args, **kwargs)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\ipykernel\\kernelbase.py", line 283, in dispatcher\n    return self.dispatch_shell(stream, msg)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\ipykernel\\kernelbase.py", line 235, in dispatch_shell\n    handler(stream, idents, msg)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\ipykernel\\kernelbase.py", line 399, in execute_request\n    user_expressions, allow_stdin)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\ipykernel\\ipkernel.py", line 196, in do_execute\n    res = shell.run_cell(code, store_history=store_history, silent=silent)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\ipykernel\\zmqshell.py", line 533, in run_cell\n    return super(ZMQInteractiveShell, self).run_cell(*args, **kwargs)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\IPython\\core\\interactiveshell.py", line 2698, in run_cell\n    interactivity=interactivity, compiler=compiler, result=result)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\IPython\\core\\interactiveshell.py", line 2808, in run_ast_nodes\n    if self.run_code(code, result):', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\IPython\\core\\interactiveshell.py", line 2862, in run_code\n    exec(code_obj, self.user_global_ns, self.user_ns)', 'File "<ipython-input-17-4b8937721a82>", line 19, in <module>\n    tests.test_model_inputs(model_inputs)', 'File "C:\\Users\\DNastri\\DeepLearning\\python-jupyter-language-translation\\problem_unittests.py", line 107, in test_model_inputs\n    assert tf.assert_rank(keep_prob, 0, message=\'Keep Probability has wrong rank\')', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tensorflow\\python\\ops\\check_ops.py", line 617, in assert_rank\n    dynamic_condition, data, summarize)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tensorflow\\python\\ops\\check_ops.py", line 571, in _assert_rank_condition\n    return control_flow_ops.Assert(condition, data, summarize=summarize)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tensorflow\\python\\util\\tf_should_use.py", line 175, in wrapped\n    return _add_should_use_warning(fn(*args, **kwargs))', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tensorflow\\python\\util\\tf_should_use.py", line 144, in _add_should_use_warning\n    wrapped = TFShouldUseWarningWrapper(x)', 'File "C:\\Users\\DNastri\\AppData\\Local\\Continuum\\Anaconda3\\envs\\language_best\\lib\\site-packages\\tensorflow\\python\\util\\tf_should_use.py", line 101, in __init__\n    stack = [s.strip() for s in traceback.format_stack()]']
-    ==================================
     Tests Passed
     
 
@@ -317,13 +303,10 @@ def decoding_layer_train(encoder_state, dec_cell, dec_embed_input,
     :param keep_prob: Dropout keep probability
     :return: BasicDecoderOutput containing training logits and sample_id
     """
-    
-    drop = tf.contrib.rnn.DropoutWrapper(dec_cell, output_keep_prob=keep_prob)
-    train_dec_fn = tf.contrib.seq2seq.simple_decoder_fn_train(encoder_state)
-    train_pred, _, _ = tf.contrib.seq2seq.dynamic_rnn_decoder(drop, train_dec_fn, dec_embed_input,
-                                                              sequence_length, scope=decoding_scope)
-    
-    return output_fn(train_pred)
+    training_helper = tf.contrib.seq2seq.TrainingHelper(inputs=dec_embed_input, sequence_length=target_sequence_length, time_major=False)
+    basic_decoder = tf.contrib.seq2seq.BasicDecoder(dec_cell,training_helper,encoder_state,output_layer)
+    training_decoder_output, _ = tf.contrib.seq2seq.dynamic_decode(basic_decoder,impute_finished=True,maximum_iterations= max_summary_length)
+    return training_decoder_output 
 
 
 
@@ -333,35 +316,8 @@ DON'T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE
 tests.test_decoding_layer_train(decoding_layer_train)
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    AttributeError                            Traceback (most recent call last)
-
-    <ipython-input-10-c46624ef59fe> in <module>()
-         27 DON'T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE
-         28 """
-    ---> 29 tests.test_decoding_layer_train(decoding_layer_train)
+    Tests Passed
     
-
-    ~\DeepLearning\python-jupyter-language-translation\problem_unittests.py in test_decoding_layer_train(decoding_layer_train)
-        340                                         max_target_sequence_length,
-        341                                         output_layer,
-    --> 342                                         keep_prob)
-        343 
-        344             # encoder_state, dec_cell, dec_embed_input, sequence_length,
-    
-
-    <ipython-input-10-c46624ef59fe> in decoding_layer_train(encoder_state, dec_cell, dec_embed_input, target_sequence_length, max_summary_length, output_layer, keep_prob)
-         16 
-         17     drop = tf.contrib.rnn.DropoutWrapper(dec_cell, output_keep_prob=keep_prob)
-    ---> 18     train_dec_fn = tf.contrib.seq2seq.simple_decoder_fn_train(encoder_state)
-         19     train_pred, _, _ = tf.contrib.seq2seq.dynamic_rnn_decoder(drop, train_dec_fn, dec_embed_input,
-         20                                                               sequence_length, scope=decoding_scope)
-    
-
-    AttributeError: module 'tensorflow.contrib.seq2seq' has no attribute 'simple_decoder_fn_train'
-
 
 ### Decoding - Inference
 Create inference decoder:
@@ -389,23 +345,27 @@ def decoding_layer_infer(encoder_state, dec_cell, dec_embeddings, start_of_seque
     :param keep_prob: Dropout keep probability
     :return: BasicDecoderOutput containing inference logits and sample_id
     """
-    start_tokens = tf.tile(tf.constant([target_letter_to_int['<GO>']], dtype=tf.int32), [batch_size], name='start_tokens')
+    start_of_sequence_id = target_vocab_to_int['<GO>']
+    end_of_sequence_id = target_vocab_to_int['<EOS>']
+   
+       
+    start_tokens = tf.tile(tf.constant([start_of_sequence_id], dtype=tf.int32), [batch_size], name='start_tokens')
 
-    # Helper for the inference process.
-    inference_helper = tf.contrib.seq2seq.GreedyEmbeddingHelper(dec_embeddings,
-                                                                start_tokens,
-                                                                target_letter_to_int['<EOS>'])
-
-    # Basic decoder
+       
+       
+    inference_helper = tf.contrib.seq2seq.GreedyEmbeddingHelper(dec_embeddings, start_tokens,
+                                                                    end_of_sequence_id)
+       
     inference_decoder = tf.contrib.seq2seq.BasicDecoder(dec_cell,
-                                                        inference_helper,
-                                                        enc_state,
-                                                        output_layer)
-        
-    # Perform dynamic decoding using the decoder
-    inference_decoder_output, _ = tf.contrib.seq2seq.dynamic_decode(inference_decoder,
-                                                            impute_finished=True,
-                                                            maximum_iterations=max_target_sequence_length)
+                                                           inference_helper,
+                                                           encoder_state,
+                                                           output_layer)
+       
+    inference_decoder_output, _= tf.contrib.seq2seq.dynamic_decode(inference_decoder,
+                                                                       impute_finished=True,
+                                                                       maximum_iterations= max_target_sequence_length)
+
+    return inference_decoder_output
 
 
 
@@ -415,35 +375,8 @@ DON'T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE
 tests.test_decoding_layer_infer(decoding_layer_infer)
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-11-3c8931425077> in <module>()
-         40 DON'T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE
-         41 """
-    ---> 42 tests.test_decoding_layer_infer(decoding_layer_infer)
+    Tests Passed
     
-
-    ~\DeepLearning\python-jupyter-language-translation\problem_unittests.py in test_decoding_layer_infer(decoding_layer_infer)
-        399                                                         output_layer,
-        400                                                         batch_size,
-    --> 401                                                         keep_prob)
-        402 
-        403             # encoder_state, dec_cell, dec_embeddings, 10, 20,
-    
-
-    <ipython-input-11-3c8931425077> in decoding_layer_infer(encoder_state, dec_cell, dec_embeddings, start_of_sequence_id, end_of_sequence_id, max_target_sequence_length, vocab_size, output_layer, batch_size, keep_prob)
-         17     :return: BasicDecoderOutput containing inference logits and sample_id
-         18     """
-    ---> 19     start_tokens = tf.tile(tf.constant([target_letter_to_int['<GO>']], dtype=tf.int32), [batch_size], name='start_tokens')
-         20 
-         21     # Helper for the inference process.
-    
-
-    NameError: name 'target_letter_to_int' is not defined
-
 
 ### Build the Decoding Layer
 Implement `decoding_layer()` to create a Decoder RNN layer.
@@ -458,6 +391,8 @@ Note: You'll need to use [tf.variable_scope](https://www.tensorflow.org/api_docs
 
 
 ```python
+from tensorflow.python.layers import core as layers_core
+
 def decoding_layer(dec_input, encoder_state,
                    target_sequence_length, max_target_sequence_length,
                    rnn_size,
@@ -478,8 +413,30 @@ def decoding_layer(dec_input, encoder_state,
     :param decoding_embedding_size: Decoding embedding size
     :return: Tuple of (Training BasicDecoderOutput, Inference BasicDecoderOutput)
     """
-    # TODO: Implement Function
-    return None, None
+    # embedding target sequence
+    dec_embeddings = tf.Variable(tf.random_uniform([target_vocab_size, decoding_embedding_size]))
+    dec_embed_input = tf.nn.embedding_lookup(dec_embeddings, dec_input)
+    # construct decoder lstm cell
+    dec_cell = tf.contrib.rnn.MultiRNNCell([
+        tf.contrib.rnn.LSTMCell(rnn_size) 
+        for _ in range(num_layers) ])
+    # create output layer to map the outputs of the decoder to the elements of our vocabulary
+    output_layer = layers_core.Dense(target_vocab_size,
+                                    kernel_initializer = tf.truncated_normal_initializer(mean = 0.0, stddev=0.1))
+    # decoder train
+    with tf.variable_scope("decoding") as decoding_scope:
+        dec_outputs_train = decoding_layer_train(encoder_state, dec_cell, dec_embed_input, 
+                             target_sequence_length, max_target_sequence_length, 
+                             output_layer, keep_prob)
+    # decoder inference
+    start_of_sequence_id = target_vocab_to_int["<GO>"]
+    end_of_sequence_id = target_vocab_to_int["<EOS>"]
+    with tf.variable_scope("decoding", reuse=True) as decoding_scope:
+        dec_outputs_infer = decoding_layer_infer(encoder_state, dec_cell, dec_embeddings, start_of_sequence_id,
+                             end_of_sequence_id, max_target_sequence_length,
+                             target_vocab_size, output_layer, batch_size, keep_prob)
+    # rerturn
+    return dec_outputs_train, dec_outputs_infer
 
 
 
@@ -488,6 +445,9 @@ DON'T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE
 """
 tests.test_decoding_layer(decoding_layer)
 ```
+
+    Tests Passed
+    
 
 ### Build the Neural Network
 Apply the functions you implemented above to:
@@ -521,8 +481,18 @@ def seq2seq_model(input_data, target_data, keep_prob, batch_size,
     :param target_vocab_to_int: Dictionary to go from the target words to an id
     :return: Tuple of (Training BasicDecoderOutput, Inference BasicDecoderOutput)
     """
-    # TODO: Implement Function
-    return None, None
+    enc_output, enc_state = encoding_layer(input_data, rnn_size, num_layers, keep_prob, 
+                   source_sequence_length, source_vocab_size, 
+                   enc_embedding_size)
+    # process target data
+    dec_input = process_decoder_input(target_data, target_vocab_to_int, batch_size) 
+    # embedding and decoding
+    dec_outputs_train, dec_outputs_infer = decoding_layer(dec_input, enc_state,
+                   target_sequence_length, tf.reduce_max(target_sequence_length),
+                   rnn_size,
+                   num_layers, target_vocab_to_int, target_vocab_size,
+                   batch_size, keep_prob, dec_embedding_size)
+    return dec_outputs_train, dec_outputs_infer
 
 
 """
@@ -530,6 +500,9 @@ DON'T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE
 """
 tests.test_seq2seq_model(seq2seq_model)
 ```
+
+    Tests Passed
+    
 
 ## Neural Network Training
 ### Hyperparameters
@@ -563,6 +536,25 @@ learning_rate = None
 # Dropout Keep Probability
 keep_probability = None
 display_step = None
+
+
+# Number of Epochs
+epochs = 20
+# Batch Size
+batch_size = 256
+# RNN Size
+rnn_size = 40
+# Number of Layers
+num_layers = 2
+# Embedding Size
+encoding_embedding_size = 30
+decoding_embedding_size = 30
+# Learning Rate
+learning_rate = 0.005
+# Dropout Keep Probability
+keep_probability = 0.8
+display_step = 0.8
+
 ```
 
 ### Build the Graph
@@ -747,6 +739,9 @@ with tf.Session(graph=train_graph) as sess:
     print('Model Trained and Saved')
 ```
 
+    Model Trained and Saved
+    
+
 ### Save Parameters
 Save the `batch_size` and `save_path` parameters for inference.
 
@@ -791,8 +786,10 @@ def sentence_to_seq(sentence, vocab_to_int):
     :param vocab_to_int: Dictionary to go from the words to an id
     :return: List of word ids
     """
-    # TODO: Implement Function
-    return None
+    sentence = sentence.lower()
+    words = sentence.split()
+    word_id_list = [vocab_to_int.get(word, vocab_to_int['<UNK>']) for word in words]
+    return word_id_list
 
 
 """
@@ -800,6 +797,9 @@ DON'T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE
 """
 tests.test_sentence_to_seq(sentence_to_seq)
 ```
+
+    Tests Passed
+    
 
 ## Translate
 This will translate `translate_sentence` from English to French.
@@ -840,6 +840,16 @@ print('  Word Ids:      {}'.format([i for i in translate_logits]))
 print('  French Words: {}'.format(" ".join([target_int_to_vocab[i] for i in translate_logits])))
 
 ```
+
+    INFO:tensorflow:Restoring parameters from checkpoints/dev
+    Input
+      Word Ids:      [163, 165, 118, 67, 22, 57, 13]
+      English Words: ['he', 'saw', 'a', 'old', 'yellow', 'truck', '.']
+    
+    Prediction
+      Word Ids:      [296, 315, 134, 351, 42, 56, 179, 278, 1]
+      French Words: il a vu un nouveau camion noir . <EOS>
+    
 
 ## Imperfect Translation
 You might notice that some sentences translate better than others.  Since the dataset you're using only has a vocabulary of 227 English words of the thousands that you use, you're only going to see good results using these words.  For this project, you don't need a perfect translation. However, if you want to create a better translation model, you'll need better data.

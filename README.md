@@ -267,9 +267,10 @@ def encoding_layer(rnn_inputs, rnn_size, num_layers, keep_prob,
     :return: tuple (RNN output, RNN state)
     """
     encoder_inputs = tf.contrib.layers.embed_sequence(rnn_inputs, source_vocab_size, encoding_embedding_size)
-    cell = tf.contrib.rnn.MultiRNNCell([ tf.contrib.rnn.LSTMCell(rnn_size) for _ in range(num_layers) ])
+    cell = tf.contrib.rnn.MultiRNNCell([tf.contrib.rnn.DropoutWrapper(tf.contrib.rnn.BasicLSTMCell(rnn_size), output_keep_prob=keep_prob) for _ in range(num_layers)])
     RNN_output, RNN_state = tf.nn.dynamic_rnn(cell, encoder_inputs, sequence_length=source_sequence_length, dtype=tf.float32)
     return RNN_output, RNN_state
+
 
 """
 DON'T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE
@@ -417,9 +418,7 @@ def decoding_layer(dec_input, encoder_state,
     dec_embeddings = tf.Variable(tf.random_uniform([target_vocab_size, decoding_embedding_size]))
     dec_embed_input = tf.nn.embedding_lookup(dec_embeddings, dec_input)
     # construct decoder lstm cell
-    dec_cell = tf.contrib.rnn.MultiRNNCell([
-        tf.contrib.rnn.LSTMCell(rnn_size) 
-        for _ in range(num_layers) ])
+    dec_cell = tf.contrib.rnn.DropoutWrapper(tf.contrib.rnn.MultiRNNCell([tf.contrib.rnn.BasicLSTMCell(rnn_size) for _ in range(num_layers)]),output_keep_prob=keep_prob)
     # create output layer to map the outputs of the decoder to the elements of our vocabulary
     output_layer = layers_core.Dense(target_vocab_size,
                                     kernel_initializer = tf.truncated_normal_initializer(mean = 0.0, stddev=0.1))
@@ -521,34 +520,16 @@ Tune the following parameters:
 
 ```python
 # Number of Epochs
-epochs = None
-# Batch Size
-batch_size = None
-# RNN Size
-rnn_size = None
-# Number of Layers
-num_layers = None
-# Embedding Size
-encoding_embedding_size = None
-decoding_embedding_size = None
-# Learning Rate
-learning_rate = None
-# Dropout Keep Probability
-keep_probability = None
-display_step = None
-
-
-# Number of Epochs
 epochs = 20
 # Batch Size
 batch_size = 256
 # RNN Size
-rnn_size = 40
+rnn_size = 256
 # Number of Layers
 num_layers = 2
 # Embedding Size
-encoding_embedding_size = 30
-decoding_embedding_size = 30
+encoding_embedding_size = 128
+decoding_embedding_size = 128
 # Learning Rate
 learning_rate = 0.005
 # Dropout Keep Probability
@@ -843,12 +824,12 @@ print('  French Words: {}'.format(" ".join([target_int_to_vocab[i] for i in tran
 
     INFO:tensorflow:Restoring parameters from checkpoints/dev
     Input
-      Word Ids:      [163, 165, 118, 67, 22, 57, 13]
+      Word Ids:      [89, 45, 32, 155, 46, 202, 103]
       English Words: ['he', 'saw', 'a', 'old', 'yellow', 'truck', '.']
     
     Prediction
-      Word Ids:      [296, 315, 134, 351, 42, 56, 179, 278, 1]
-      French Words: il a vu un nouveau camion noir . <EOS>
+      Word Ids:      [225, 18, 191, 196, 267, 325, 0, 0, 0, 0, 0, 0, 0, 0]
+      French Words: il a vu un vieux camion <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD>
     
 
 ## Imperfect Translation

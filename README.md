@@ -1,8 +1,8 @@
 
 # Language Translation
-In this project, you’re going to take a peek into the realm of neural network machine translation.  You’ll be training a sequence to sequence model on a dataset of English and French sentences that can translate new sentences from English to French.
+In this project is a peek into the realm of neural network machine translation.  We’ll be training a sequence to sequence model on a dataset of English and French sentences that can translate new sentences from English to French.
 ## Get the Data
-Since translating the whole language of English to French will take lots of time to train, we have provided you with a small portion of the English corpus.
+Since translating the whole language of English to French will take lots of time to train, we will be using just a small portion of the English corpus.
 
 
 ```python
@@ -19,7 +19,7 @@ target_text = helper.load_data(target_path)
 ```
 
 ## Explore the Data
-Play around with view_sentence_range to view different parts of the data.
+Let's play around with view_sentence_range to view different parts of the data.
 
 
 ```python
@@ -78,13 +78,13 @@ print('\n'.join(target_text.split('\n')[view_sentence_range[0]:view_sentence_ran
 
 ## Implement Preprocessing Function
 ### Text to Word Ids
-As you did with other RNNs, you must turn the text into a number so the computer can understand it. In the function `text_to_ids()`, you'll turn `source_text` and `target_text` from words to ids.  However, you need to add the `<EOS>` word id at the end of `target_text`.  This will help the neural network predict when the sentence should end.
+As common practice with other RNNs, we must turn the text into a number so the computer can understand it. In the function `text_to_ids()`, we'll turn `source_text` and `target_text` from words to ids.  However, we also need to add the `<EOS>` word id at the end of `target_text`.  This will help the neural network predict when the sentence should end.
 
-You can get the `<EOS>` word id by doing:
+We can get the `<EOS>` word id by doing:
 ```python
 target_vocab_to_int['<EOS>']
 ```
-You can get other word ids using `source_vocab_to_int` and `target_vocab_to_int`.
+We can get other word ids using `source_vocab_to_int` and `target_vocab_to_int`.
 
 
 ```python
@@ -122,7 +122,7 @@ helper.preprocess_and_save_data(source_path, target_path, text_to_ids)
 ```
 
 # Check Point
-This is your first checkpoint. If you ever decide to come back to this notebook or have to restart the notebook, you can start from here. The preprocessed data has been saved to disk.
+This is our first checkpoint. If we ever decide to come back to this notebook or have to restart the notebook, we can start from here. The preprocessed data has been saved to disk.
 
 
 ```python
@@ -136,7 +136,7 @@ import helper
 ```
 
 ### Check the Version of TensorFlow and Access to GPU
-This will check to make sure you have the correct version of TensorFlow and access to a GPU
+This will check to make sure we have the correct version of TensorFlow and access to a GPU
 
 
 ```python
@@ -167,7 +167,7 @@ else:
     
 
 ## Build the Neural Network
-You'll build the components necessary to build a Sequence-to-Sequence model by implementing the following functions below:
+We'll build the components necessary to build a Sequence-to-Sequence model by implementing the following functions below:
 - `model_inputs`
 - `process_decoder_input`
 - `encoding_layer`
@@ -177,7 +177,7 @@ You'll build the components necessary to build a Sequence-to-Sequence model by i
 - `seq2seq_model`
 
 ### Input
-Implement the `model_inputs()` function to create TF Placeholders for the Neural Network. It should create the following placeholders:
+Implemented the `model_inputs()` function to create TF Placeholders for the Neural Network. It creates the following placeholders:
 
 - Input text placeholder named "input" using the TF Placeholder name parameter with rank 2.
 - Targets placeholder with rank 2.
@@ -187,7 +187,7 @@ Implement the `model_inputs()` function to create TF Placeholders for the Neural
 - Max target sequence length tensor named "max_target_len" getting its value from applying tf.reduce_max on the target_sequence_length placeholder. Rank 0.
 - Source sequence length placeholder named "source_sequence_length" with rank 1
 
-Return the placeholders in the following the tuple (input, targets, learning rate, keep probability, target sequence length, max target sequence length, source sequence length)
+Returns the placeholders in the following the tuple (input, targets, learning rate, keep probability, target sequence length, max target sequence length, source sequence length)
 
 
 ```python
@@ -216,7 +216,7 @@ tests.test_model_inputs(model_inputs)
     
 
 ### Process Decoder Input
-Implement `process_decoder_input` by removing the last word id from each batch in `target_data` and concat the GO ID to the begining of each batch.
+Implemented `process_decoder_input` by removing the last word id from each batch in `target_data` and concat the GO ID to the begining of each batch.
 
 
 ```python
@@ -242,7 +242,7 @@ tests.test_process_encoding_input(process_decoder_input)
     
 
 ### Encoding
-Implement `encoding_layer()` to create a Encoder RNN layer:
+Implemented `encoding_layer()` to create a Encoder RNN layer:
  * Embed the encoder input using [`tf.contrib.layers.embed_sequence`](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/embed_sequence)
  * Construct a [stacked](https://github.com/tensorflow/tensorflow/blob/6947f65a374ebf29e74bb71e36fd82760056d82c/tensorflow/docs_src/tutorials/recurrent.md#stacking-multiple-lstms) [`tf.contrib.rnn.LSTMCell`](https://www.tensorflow.org/api_docs/python/tf/contrib/rnn/LSTMCell) wrapped in a [`tf.contrib.rnn.DropoutWrapper`](https://www.tensorflow.org/api_docs/python/tf/contrib/rnn/DropoutWrapper)
  * Pass cell and embedded input to [`tf.nn.dynamic_rnn()`](https://www.tensorflow.org/api_docs/python/tf/nn/dynamic_rnn)
@@ -282,10 +282,10 @@ tests.test_encoding_layer(encoding_layer)
     
 
 ### Decoding - Training
-Create a training decoding layer:
-* Create a [`tf.contrib.seq2seq.TrainingHelper`](https://www.tensorflow.org/api_docs/python/tf/contrib/seq2seq/TrainingHelper) 
-* Create a [`tf.contrib.seq2seq.BasicDecoder`](https://www.tensorflow.org/api_docs/python/tf/contrib/seq2seq/BasicDecoder)
-* Obtain the decoder outputs from [`tf.contrib.seq2seq.dynamic_decode`](https://www.tensorflow.org/api_docs/python/tf/contrib/seq2seq/dynamic_decode)
+Creates a training decoding layer:
+* Creates a [`tf.contrib.seq2seq.TrainingHelper`](https://www.tensorflow.org/api_docs/python/tf/contrib/seq2seq/TrainingHelper) 
+* Creates a [`tf.contrib.seq2seq.BasicDecoder`](https://www.tensorflow.org/api_docs/python/tf/contrib/seq2seq/BasicDecoder)
+* Obtains the decoder outputs from [`tf.contrib.seq2seq.dynamic_decode`](https://www.tensorflow.org/api_docs/python/tf/contrib/seq2seq/dynamic_decode)
 
 
 ```python
@@ -321,10 +321,10 @@ tests.test_decoding_layer_train(decoding_layer_train)
     
 
 ### Decoding - Inference
-Create inference decoder:
-* Create a [`tf.contrib.seq2seq.GreedyEmbeddingHelper`](https://www.tensorflow.org/api_docs/python/tf/contrib/seq2seq/GreedyEmbeddingHelper)
-* Create a [`tf.contrib.seq2seq.BasicDecoder`](https://www.tensorflow.org/api_docs/python/tf/contrib/seq2seq/BasicDecoder)
-* Obtain the decoder outputs from [`tf.contrib.seq2seq.dynamic_decode`](https://www.tensorflow.org/api_docs/python/tf/contrib/seq2seq/dynamic_decode)
+Creates inference decoder:
+* Creates a [`tf.contrib.seq2seq.GreedyEmbeddingHelper`](https://www.tensorflow.org/api_docs/python/tf/contrib/seq2seq/GreedyEmbeddingHelper)
+* Creates a [`tf.contrib.seq2seq.BasicDecoder`](https://www.tensorflow.org/api_docs/python/tf/contrib/seq2seq/BasicDecoder)
+* Obtains the decoder outputs from [`tf.contrib.seq2seq.dynamic_decode`](https://www.tensorflow.org/api_docs/python/tf/contrib/seq2seq/dynamic_decode)
 
 
 ```python
@@ -380,15 +380,15 @@ tests.test_decoding_layer_infer(decoding_layer_infer)
     
 
 ### Build the Decoding Layer
-Implement `decoding_layer()` to create a Decoder RNN layer.
+Implemented `decoding_layer()` to create a Decoder RNN layer.
 
-* Embed the target sequences
-* Construct the decoder LSTM cell (just like you constructed the encoder cell above)
-* Create an output layer to map the outputs of the decoder to the elements of our vocabulary
-* Use the your `decoding_layer_train(encoder_state, dec_cell, dec_embed_input, target_sequence_length, max_target_sequence_length, output_layer, keep_prob)` function to get the training logits.
-* Use your `decoding_layer_infer(encoder_state, dec_cell, dec_embeddings, start_of_sequence_id, end_of_sequence_id, max_target_sequence_length, vocab_size, output_layer, batch_size, keep_prob)` function to get the inference logits.
+* Embedded the target sequences
+* Constructed the decoder LSTM cell (just like you constructed the encoder cell above)
+* Created an output layer to map the outputs of the decoder to the elements of our vocabulary
+* Useed the your `decoding_layer_train(encoder_state, dec_cell, dec_embed_input, target_sequence_length, max_target_sequence_length, output_layer, keep_prob)` function to get the training logits.
+* Useed your `decoding_layer_infer(encoder_state, dec_cell, dec_embeddings, start_of_sequence_id, end_of_sequence_id, max_target_sequence_length, vocab_size, output_layer, batch_size, keep_prob)` function to get the inference logits.
 
-Note: You'll need to use [tf.variable_scope](https://www.tensorflow.org/api_docs/python/tf/variable_scope) to share variables between training and inference.
+Note: We need to use [tf.variable_scope](https://www.tensorflow.org/api_docs/python/tf/variable_scope) to share variables between training and inference.
 
 
 ```python
@@ -449,7 +449,7 @@ tests.test_decoding_layer(decoding_layer)
     
 
 ### Build the Neural Network
-Apply the functions you implemented above to:
+Applying the functions implemented above to:
 
 - Encode the input using your `encoding_layer(rnn_inputs, rnn_size, num_layers, keep_prob,  source_sequence_length, source_vocab_size, encoding_embedding_size)`.
 - Process target data using your `process_decoder_input(target_data, target_vocab_to_int, batch_size)` function.
@@ -505,7 +505,7 @@ tests.test_seq2seq_model(seq2seq_model)
 
 ## Neural Network Training
 ### Hyperparameters
-Tune the following parameters:
+Tune the following parameters to change NN behaviour:
 
 - Set `epochs` to the number of epochs.
 - Set `batch_size` to the batch size.
@@ -539,8 +539,8 @@ display_step = 10
 
 ```
 
-### Build the Graph
-Build the graph using the neural network you implemented.
+### Building the Graph
+Building the graph using the neural network we implemented.
 
 
 ```python
@@ -636,7 +636,7 @@ def get_batches(sources, targets, batch_size, source_pad_int, target_pad_int):
 ```
 
 ### Train
-Train the neural network on the preprocessed data. If you have a hard time getting a good loss, check the forms to see if anyone is having the same problem.
+Training the neural network on the preprocessed data.  
 
 
 ```python
@@ -1018,11 +1018,11 @@ load_path = helper.load_params()
 ```
 
 ## Sentence to Sequence
-To feed a sentence into the model for translation, you first need to preprocess it.  Implement the function `sentence_to_seq()` to preprocess new sentences.
+To feed a sentence into the model for translation, we first need to preprocess it.  The function `sentence_to_seq()` is used to preprocess new sentences.
 
-- Convert the sentence to lowercase
-- Convert words into ids using `vocab_to_int`
- - Convert words not in the vocabulary, to the `<UNK>` word id.
+- Converts the sentence to lowercase
+- Converts words into ids using `vocab_to_int`
+- Converts words not in the vocabulary, to the `<UNK>` word id.
 
 
 ```python
@@ -1101,6 +1101,4 @@ print('  French Words: {}'.format(" ".join([target_int_to_vocab[i] for i in tran
 ## Imperfect Translation
 You might notice that some sentences translate better than others.  Since the dataset you're using only has a vocabulary of 227 English words of the thousands that you use, you're only going to see good results using these words.  For this project, you don't need a perfect translation. However, if you want to create a better translation model, you'll need better data.
 
-You can train on the [WMT10 French-English corpus](http://www.statmt.org/wmt10/training-giga-fren.tar).  This dataset has more vocabulary and richer in topics discussed.  However, this will take you days to train, so make sure you've a GPU and the neural network is performing well on dataset we provided.  Just make sure you play with the WMT10 corpus after you've submitted this project.
-## Submitting This Project
-When submitting this project, make sure to run all the cells before saving the notebook. Save the notebook file as "dlnd_language_translation.ipynb" and save it as a HTML file under "File" -> "Download as". Include the "helper.py" and "problem_unittests.py" files in your submission.
+You can train on the [WMT10 French-English corpus](http://www.statmt.org/wmt10/training-giga-fren.tar).  This dataset has more vocabulary and richer in topics discussed.  However, this will take you days to train, so make sure you've a GPU and the neural network is performing well on dataset we provided.  Just make sure you play with the WMT10 corpus to get better results.  

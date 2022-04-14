@@ -1,19 +1,19 @@
 # This file may be used to create an environment using:
 # $ conda create --name <env> --file <this file>
 # platform: win-64
-certifi=2017.7.27.1
-mkl=2017.0.3
-mock=2.0.0
-numpy=1.13.1
-pbr=3.1.1
-pip=9.0.1
-protobuf=3.3.2=
-python=3.5.3
-setuptools=36.2.2
-six=1.10.0
-tensorflow=1.1.0
-vs2015_runtime=14.0.25420
-werkzeug=0.12.2
-wheel=0.29.0
-wincertstore=0.2
-zlib=1.2.11
+certifi==2017.7.27.1
+mkl==2017.0.3
+mock==2.0.0
+numpy==1.13.1
+pbr==3.1.1
+pip==9.0.1
+protobuf==3.3.2
+python==3.5.3
+setuptools==36.2.2
+six==1.10.0
+tensorflow==1.1.0
+vs2015_runtime==14.0.25420
+werkzeug==0.12.2
+wheel==0.29.0
+wincertstore==0.2
+zlib==1.2.11

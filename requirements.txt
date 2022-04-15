@@ -11,7 +11,7 @@ protobuf==3.3.2
 python==3.5.3
 setuptools==36.2.2
 six==1.10.0
-tensorflow==1.1.0
+tensorflow==2.5.3
 vs2015_runtime==14.0.25420
 werkzeug==0.12.2
 wheel==0.29.0

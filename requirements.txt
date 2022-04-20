@@ -13,7 +13,7 @@ setuptools==36.2.2
 six==1.10.0
 tensorflow==2.5.3
 vs2015_runtime==14.0.25420
-werkzeug==0.12.2
+werkzeug==0.15.3
 wheel==0.29.0
 wincertstore==0.2
 zlib==1.2.11
